@@ -1,0 +1,219 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}
+    نظر برای محصول {{ product.title }}
+{% endblock title %}
+
+
+{% block content %}
+    <main class="page-content">
+        <div class="container">
+            <!-- start of breadcrumb -->
+            <nav class="mb-5" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url "store:home_page" %}">پوریا کالا</a></li>
+                  {% for category in product.categories.all %}
+                    <li class="breadcrumb-item">{% if not forloop.last %}
+                      <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+                  {% else %}
+                  <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+                  {% endif %}
+                </li>
+                {% endfor %}
+                </ol>
+            </nav>
+            <!-- end of breadcrumb -->
+            <!-- start of box -->
+            <div class="ui-box bg-white product-detail-container mb-5">
+                <div class="ui-box-content">
+                    <div class="row mb-3">
+                        <div class="col-lg-4 mb-lg-0 mb-4">
+                            <!-- start of product-gallery -->
+                            <div class="product-gallery">
+                                <div class="gallery-img-container">
+
+                                        <div class="gallery-img">
+                                            <img src="{{ product.image.url }}" alt="{{ product.english_title }}">
+                                        </div>
+
+                                </div>
+                            </div>
+                            <!-- end of product-gallery -->
+                        </div>
+                        <div class="col-lg-8 mb-4">
+                            <!-- start of product-detail -->
+                            <h2 class="product-title">{{ product.title }}</h2>
+                            <div class="product-en mb-3">
+                                <span>{{ product.english_title }}</span>
+                            </div>
+                            <!-- start of comments-product-attributes -->
+                            <form method="POST" class="add-comment-product">
+                                {% csrf_token %}
+                                <div class="comments-product-attributes px-3">
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-3">
+                                            <!-- start of product-attribute -->
+                                            <div class="comments-product-attributes-title">کیفیت ساخت</div>
+                                            <input name="build_quality" id="ex19" type="text" data-provide="slider"
+                                                data-slider-ticks="[1, 2, 3, 4, 5]"
+                                                data-slider-ticks-labels='["خیلی بد", "بد", "معمولی","خوب","عالی"]'
+                                                data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                                data-slider-value="3" data-slider-tooltip="hide" />
+                                            <!-- end of product-attribute -->
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <!-- start of product-attribute -->
+                                            <div class="comments-product-attributes-title">ارزش خرید به نسبت قیمت
+                                            </div>
+                                            <input name="value_for_price" id="ex20" type="text" data-provide="slider"
+                                                data-slider-ticks="[1, 2, 3, 4, 5]"
+                                                data-slider-ticks-labels='["خیلی بد", "بد", "معمولی","خوب","عالی"]'
+                                                data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                                data-slider-value="3" data-slider-tooltip="hide" />
+                                            <!-- end of product-attribute -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-3">
+                                            <!-- start of product-attribute -->
+                                            <div class="comments-product-attributes-title">نوآوری</div>
+                                            <input name="innovation" id="ex21" type="text" data-provide="slider"
+                                                data-slider-ticks="[1, 2, 3, 4, 5]"
+                                                data-slider-ticks-labels='["خیلی بد", "بد", "معمولی","خوب","عالی"]'
+                                                data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                                data-slider-value="3" data-slider-tooltip="hide" />
+                                            <!-- end of product-attribute -->
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <!-- start of product-attribute -->
+                                            <div class="comments-product-attributes-title">امکانات و قابلیت ها</div>
+                                            <input name="features" id="ex22" type="text" data-provide="slider"
+                                                data-slider-ticks="[1, 2, 3, 4, 5]"
+                                                data-slider-ticks-labels='["خیلی بد", "بد", "معمولی","خوب","عالی"]'
+                                                data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                                data-slider-value="3" data-slider-tooltip="hide" />
+                                            <!-- end of product-attribute -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-3">
+                                            <!-- start of product-attribute -->
+                                            <div class="comments-product-attributes-title">سهولت استفاده</div>
+                                            <input name="ease_of_use" id="ex23" type="text" data-provide="slider"
+                                                data-slider-ticks="[1, 2, 3, 4, 5]"
+                                                data-slider-ticks-labels='["خیلی بد", "بد", "معمولی","خوب","عالی"]'
+                                                data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                                data-slider-value="3" data-slider-tooltip="hide" />
+                                            <!-- end of product-attribute -->
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <!-- start of product-attribute -->
+                                            <div class="comments-product-attributes-title">طراحی و ظاهر</div>
+                                            <input name="design" id="ex24" type="text" data-provide="slider"
+                                                data-slider-ticks="[1, 2, 3, 4, 5]"
+                                                data-slider-ticks-labels='["خیلی بد", "بد", "معمولی","خوب","عالی"]'
+                                                data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                                data-slider-value="3" data-slider-tooltip="hide" />
+                                            <!-- end of product-attribute -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of comments-product-attributes -->
+                                <!-- end of product-detail -->
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 mb-md-0 mb-4">
+                                            <!-- start of form-element -->
+                                            <div class="form-element-row mb-3">
+                                                <label class="label">عنوان نظر شما</label>
+                                                <input name="title" type="text" class="form-control"
+                                                    placeholder="عنوان نظر خود را بنویسید..">
+                                            </div>
+                                            <!-- end of form-element -->
+                                            <!-- start of form-element -->
+                                            <div class="form-element-row mb-3">
+                                                <label class="label">نقاط قوت</label>
+                                                <div class="add-point-container" id="advantages">
+                                                    <input type="hidden" id="id_advantages" name="advantages">
+                                                    <div class="add-point-field">
+                                                        <input type="text" class="form-control" id="advantage-input"
+                                                            autocomplete="off">
+                                                        <button type="button" id="add-advantages"
+                                                            class="btn btn-primary btn-add-point js-icon-form-add"><i
+                                                                class="ri-add-line"></i></button>
+                                                    </div>
+                                                    <div id="advantages-list" class="comment-dynamic-labels js-advantages-list advantages-container"></div>
+                                                </div>
+                                            </div>
+                                            <!-- end of form-element -->
+                                            <!-- start of form-element -->
+                                            <div class="form-element-row mb-3">
+                                                <label class="label">نقاط ضعف</label>
+                                                <div class="add-point-container" id="disadvantages">
+                                                    <input type="hidden" id="id_disadvantages" name="disadvantages">
+                                                    <div class="add-point-field">
+                                                        <input type="text" class="form-control" id="disadvantages-input"
+                                                            autocomplete="off">
+                                                        <button type="button" id="add-disadvantages"
+                                                            class="btn btn-primary btn-add-point js-icon-form-add"><i
+                                                                class="ri-add-line"></i></button>
+                                                    </div>
+                                                    <div id="disadvantages-list" class="comment-dynamic-labels js-disadvantages-list disadvantages-container"></div>
+                                                </div>
+                                            </div>
+                                            <!-- end of form-element -->
+                                            <!-- start of form-element -->
+                                            <div class="form-element-row mb-3">
+                                                <label class="label">متن نظر شما (اجباری)</label>
+                                                <textarea name="text" rows="5" class="form-control"
+                                                    placeholder="متن نظر خود را بنویسید.."></textarea>
+                                            </div>
+                                            <!-- end of form-element -->
+                                            <div class="text-end mb-3">
+                                                <button class="btn btn-primary">ثبت نظر <i
+                                                        class="ri-send-plane-fill ms-2"></i></button>
+                                            </div>
+                            </form>
+                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                <div class="my-2">
+                                    با “ثبت نظر” موافقت خود را با <a href="#" class="link">قوانین انتشار نظرات</a>
+                                    در سایت اعلام می‌کنم.
+                                </div>
+                                <div class="my-2">
+                                    <a href="{% url "store:product-detail" product.slug %}" class="link">انصراف و بازگشت</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="fs-5 fw-bold text-dark mb-3">
+                                دیگران را با نوشتن نظرات خود، برای انتخاب این محصول راهنمایی کنید.
+                            </div>
+                            <div class="fs-7 fw-bold text-info mb-3">
+                                لطفا پیش از ارسال نظر، خلاصه قوانین زیر را مطالعه کنید:
+                            </div>
+                            <ul class="ps-4 text-secondary">
+                                <li class="mb-3">لازم است محتوای ارسالی منطبق برعرف و شئونات جامعه و با بیانی رسمی و
+                                    عاری از لحن
+                                    تند، تمسخرو توهین باشد.</li>
+                                <li class="mb-3">از ارسال لینک‌های سایت‌های دیگر و ارایه‌ی اطلاعات شخصی خودتان مثل
+                                    شماره تماس،
+                                    ایمیل و آی‌دی شبکه‌های اجتماعی پرهیز کنید.</li>
+                                <li class="mb-3">در نظر داشته باشید هدف نهایی از ارائه‌ی نظر درباره‌ی کالا ارائه‌ی
+                                    اطلاعات مشخص و
+                                    دقیق برای راهنمایی سایر کاربران در فرآیند خرید یک محصول توسط ایشان است.</li>
+                                <li class="mb-3">با توجه به ساختار بخش نظرات، از پرسیدن سوال یا درخواست راهنمایی در
+                                    این بخش
+                                    خودداری کرده و سوالات خود را در بخش «پرسش و پاسخ» مطرح کنید.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of box -->
+        </div>
+    </main>
+{% endblock content %}

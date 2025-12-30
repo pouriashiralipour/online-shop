@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2962ff">
+    <meta name="msapplication-navbutton-color" content="#2962ff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2962ff">
+    <title>YektaKala | login-register</title>
+    {% include "styles.html" %}
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <div class="position-fixed top-0 start-0 p-3" style="z-index: 9999">
+            <div id="toast-message" class="toast align-items-center text-white bg-success border-0" role="alert">
+              <div class="d-flex">
+                <div class="toast-body"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+              </div>
+            </div>
+          </div>
+        <main class="page-content page-auth">
+            <!-- start of auth-container -->
+            <div class="auth-container">
+                <div class="auth-title mb-3">ورود / ثبت نام</div>
+                <!-- start of auth-box -->
+                <div class="auth-box ui-box">
+                    <!-- start of auth-form -->
+                    <form action="" method="post" class="auth-form" id="mobile-form">
+                        {% csrf_token %}
+                        <!-- start of form-element -->
+                        <div class="form-element-row mb-5">
+                            <input type="text" name="mobile" class="form-control" placeholder="شماره موبایل یا ایمیل">
+                        </div>
+                        <!-- end of form-element -->
+                        <!-- start of form-element -->
+                        <div class="form-element-row mb-3">
+                            <button class="btn btn-primary">ادامه</button>
+                        </div>
+                        <!-- end of form-element -->
+                        <!-- start of form-element -->
+                        <div class="form-element-row">
+                            <div>با ورود و یا ثبت نام در سایت شما <a href="#" class="link">شرایط و
+                                    قوانین</a> استفاده
+                                از تمام سرویس های
+                                سایت و <a href="#" class="link">قوانین حریم خصوصی</a> آن را می‌پذیرید.
+                            </div>
+                        </div>
+                        <!-- end of form-element -->
+                    </form>
+                    <!-- end of auth-form -->
+
+                </div>
+                <!-- end of auth-box -->
+            </div>
+            <!-- start of auth-container -->
+        </main>
+
+    </div>
+
+
+{% include "scripts.html" %}
+</body>
+
+</html>

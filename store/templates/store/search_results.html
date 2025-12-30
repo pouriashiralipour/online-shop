@@ -1,0 +1,35 @@
+{% extends '_base.html' %}
+{% load humanize %}
+
+{% block title %}
+  نتایج جستجو
+{% endblock %}
+
+{% block content %}
+  <main class="page-content">
+    <div class="container py-4">
+      <h1 class="fs-4 mb-4">نتایج جستجو برای: "{{ query }}"</h1>
+
+      {% if products %}
+        <div class="row g-3">
+          {% for product in products %}
+            <div class="col-md-3 col-sm-6">
+              <div class="ui-box product-box h-100">
+                <a href="{{ product.get_absolute_url }}" class="product-box-img"><img src="{{ product.image.url }}" alt="{{ product.title }}" /></a>
+                <div class="product-box-content">
+                  <h2 class="product-box-title"><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h2>
+                  <div class="product-box-price fa-num">
+                    {{ product.price|intcomma:False }}
+                    <span class="currency">تومان</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="alert alert-info mt-3">هیچ محصولی برای این جستجو پیدا نشد.</div>
+      {% endif %}
+    </div>
+  </main>
+{% endblock %}

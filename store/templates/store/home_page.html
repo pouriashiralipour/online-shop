@@ -1,0 +1,364 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load humanize %}
+{% load products_filters %}
+
+{% block title %}
+  یکتا کالا
+{% endblock %}
+
+{% block content %}
+  <main class="page-content">
+    <div class="container">
+      <div class="row mb-3 d-sm-block d-none">
+        <div class="col-12">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/025.gif' %}" alt="banner" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-lg-8 mb-lg-0 mb-4">
+          <!-- start of main-slider -->
+          <div class="swiper main-swiper-slider">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <div class="swiper-slide main-swiper-slide">
+                <a href="#" style="background-image: url({% static 'store/images/slider/main/01.jpg' %});"><img src="{% static 'store/images/slider/main/01.jpg' %}" alt="" /></a>
+              </div>
+              <div class="swiper-slide main-swiper-slide">
+                <a href="#" style="background-image: url({% static 'store/images/slider/main/02.jpg' %});"><img src="{% static 'store/images/slider/main/02.jpg' %}" alt="" /></a>
+              </div>
+              <div class="swiper-slide main-swiper-slide">
+                <a href="#" style="background-image: url({% static 'store/images/slider/main/03.jpg' %});"><img src="{% static 'store/images/slider/main/03.jpg' %}" alt="" /></a>
+              </div>
+              <div class="swiper-slide main-swiper-slide">
+                <a href="#" style="background-image: url({% static 'store/images/slider/main/04.jpg' %});"><img src="{% static 'store/images/slider/main/04.jpg' %}" alt="" /></a>
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+          <!-- end of main-slider -->
+        </div>
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-lg-12 col-6 mb-lg-3">
+              <!-- start of banner -->
+              <div class="banner-img banner-side-main-slider bg-position-right">
+                <a href="#" style="background-image: url({% static 'store/images/banner/026.jpg' %});height:220px;"><img src="{% static 'store/images/banner/026.jpg' %}" alt="" /></a>
+              </div>
+              <!-- end of banner -->
+            </div>
+            <div class="col-lg-12 col-6">
+              <!-- start of banner -->
+              <div class="banner-img banner-side-main-slider bg-position-right">
+                <a href="#" style="background-image: url({% static 'store/images/banner/027.jpg' %});height:220px;"><img src="{% static 'store/images/banner/027.jpg' %}" alt="" /></a>
+              </div>
+              <!-- end of banner -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-6 mb-lg-0 mb-3">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/018.jpg' %}" alt="" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+        <div class="col-md-6 mb-lg-0 mb-3">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/019.jpg' %}" alt="" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+      </div>
+      <!-- start of box => specials-product-slider -->
+      <div class="ui-box ui-box-specials pb-3 mb-5" style="background-color: #f03426;">
+        <div class="container">
+          <div class="ui-box-title text-white fw-bolder d-sm-none">قبل از اتمام جشنواره خرید کن!</div>
+          <div class="ui-box-content">
+            <div class="row">
+              <div class="col-lg-3 d-lg-block d-none">
+                <div class="specials-container">
+                  <img src="{% static 'store/images/theme/specials.png' %}" class="img-fluid" alt="" />
+                  <a href="{% url 'store:top-products' %}" class="btn btn-sm btn-outline-light">مشاهده همه <i class="ri-arrow-left-fill ms-2"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <!-- Slider main container -->
+                <div class="swiper product-specials-swiper-slider mb-3 pb-5">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide d-lg-none d-sm-block d-none">
+                      <div class="specials-container">
+                        <img src="{% static 'store/images/theme/specials.png' %}" class="img-fluid mb-0" alt="" />
+                        <a href="#" class="btn btn-sm btn-outline-light">مشاهده همه <i class="ri-arrow-left-fill ms-2"></i></a>
+                      </div>
+                    </div>
+                    {% for product in products|top_only %}
+                      <div class="swiper-slide">
+                        <div class="product-card">
+                          <div class="product-thumbnail">
+                            <a href="{% url 'store:product-detail' product.slug %}"><img src="{{ product.image.url }}" alt="{{ product.title }}" /></a>
+                          </div>
+                          <div class="product-card-body">
+                            <h2 class="product-title"><a href="{% url 'store:product-detail' product.slug %}">{{ product.title }}</a></h2>
+                            <div class="product-variant">
+                              {% for color in product.colors.all %}
+                                <span class="color" style="background-color: {{ color.hex_code }};"></span>
+                              {% endfor %}
+                              <span>+</span>
+                            </div>
+                            {% if product.discount_price %}
+                              <div class="product-price fa-num">
+                                <div class="d-flex align-items-center">
+                                  <del class="price-old">{{ product.price|intcomma:False }}</del>
+                                  <span class="discount ms-2">{{ product.get_discount_percentage }}%</span>
+                                </div>
+                                <span class="price-now">{{ product.discount_price|intcomma:False }} <span class="currency">تومان</span></span>
+                              </div>
+                            {% else %}
+                              <div class="product-price fa-num">
+                                <span class="price-now">{{ product.price|intcomma:False }} <span class="currency">تومان</span></span>
+                              </div>
+                            {% endif %}
+                          </div>
+                          <div class="product-card-footer">
+                            <input type="hidden" value="{{ product.id }}" class="prod_id" />
+                            <input class="product-id-{{ product.id }}" type="hidden" value="{{ product.id }}" />
+                            <div class="d-flex align-items-center justify-content-between border-top mt-2 py-2">
+                              <div class="product-actions">
+                                <ul>
+                                  {% if product.id in product_ids_in_cart %}
+                                    <li>
+                                      <a data-bs-toggle="tooltip" data-toast data-toast-type="success" data-toast-color="red" data-toast-position="topRight" data-toast-icon="ri-check-fill" data-toast-title="ناموفق!" data-toast-message="محصول قبلا به سبد خرید اضافه شده است برای حذف آن به صفحه سبد خرید بروید!" data-bs-placement="top" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="افزودن به سبد خرید"><i id="cart-icon" class="ri-shopping-cart-fill text-danger"></i></a>
+                                    </li>
+                                  {% else %}
+                                    <li>
+                                      <button id="add-to-cart-home" data-bs-toggle="tooltip" data-index="{{ product.id }}" ta-action="add-to-cart" style="background-color:transparent;font-size:18px; border:none;" data-bs-placement="top" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="افزودن به سبد خرید"><i class="ri-shopping-cart-line"></i></button>
+                                    </li>
+                                  {% endif %}
+                                  <li>
+                                    <a href="#" class="quick-view-btn" data-product-id="{{ product.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="مشاهده سریع" aria-label="مشاهده سریع" data-remodal-target="quick-view-modal"><i class="ri-search-line"></i></a>
+                                  </li>
+                                  {% if product.id in product_ids_in_favorite %}
+                                    <li>
+                                      <a href="#" class="favorite-action remove-favorite-list" data-product-id="{{ product.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف از علاقه‌مندی"><i class="ri-heart-3-fill text-danger"></i></a>
+                                    </li>
+                                  {% else %}
+                                    <li>
+                                      <a href="#" class="favorite-action add-favorite-home" data-product-id="{{ product.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="افزودن به علاقه‌مندی"><i class="ri-heart-3-line"></i></a>
+                                    </li>
+                                  {% endif %}
+                                </ul>
+                              </div>
+                              <div class="product-rating fa-num">
+                                <i class="ri-star-fill star"></i>
+                                <strong>{{ product.avg_total_rating|default:'0' }}</strong>
+                                <span>({{ product.approved_comment_count }})</span>
+                              </div>
+                            </div>
+                            <div class="countdown-timer fa-num" data-countdown="2025/08/01"></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <!-- If we need pagination -->
+                  <div class="swiper-pagination"></div>
+
+                  <!-- If we need navigation buttons -->
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of box => specials-product-slider -->
+      <!-- start of box => categories-slider -->
+      <div class="ui-box mb-5">
+        <div class="ui-box-title">دسته بندی محصولات</div>
+        <div class="ui-box-content">
+          <div class="categories-container">
+            <!-- Slider main container -->
+            <div class="swiper category-swiper-slider pb-5">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for category in global_categories %}
+                  <div class="swiper-slide">
+                    <div class="category-item">
+                      <a href="{{ category.get_absolute_url }}">
+                        <img src="{{ category.cover.url }}" class="category-img" alt="" />
+                        <span class="category-title">{{ category.title }}</span>
+                      </a>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of box => categories-slider -->
+      <div class="row mb-5">
+        <div class="col-md-3 col-6 mb-lg-0 mb-3">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/020.jpg' %}" alt="" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+        <div class="col-md-3 col-6 mb-lg-0 mb-3">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/021.jpg' %}" alt="" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+        <div class="col-md-3 col-6 mb-lg-0 mb-3">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/022.jpg' %}" alt="" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+        <div class="col-md-3 col-6 mb-lg-0 mb-3">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/023.jpg' %}" alt="" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+      </div>
+      <!-- start of box -->
+      <div class="ui-box mb-5">
+        <div class="ui-box-title">جدیدترین محصولات</div>
+        <div class="ui-box-content">
+          <!-- Slider main container -->
+          <div class="swiper product-swiper-slider">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              {% for product in products %}
+                <div class="swiper-slide">
+                  <!-- start of product-card -->
+                  <div class="product-card">
+                    <div class="product-thumbnail">
+                      <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" alt="{{ product.english_title }}" /></a>
+                    </div>
+                    <div class="product-card-body">
+                      <h2 class="product-title"><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h2>
+                      <div class="product-variant">
+                        {% for color in product.colors.all %}
+                          <span class="color" style="background-color: {{ color.hex_code }};"></span>
+                        {% endfor %}
+                        <span>+</span>
+                      </div>
+                      {% if product.discount_price %}
+                        <div class="product-price fa-num">
+                          <div class="d-flex align-items-center">
+                            <del class="price-old">{{ product.price|intcomma:False }}</del>
+                            <span class="discount ms-2">{{ product.get_discount_percentage }}%</span>
+                          </div>
+                          <span class="price-now">{{ product.discount_price|intcomma:False }} <span class="currency">تومان</span></span>
+                        </div>
+                      {% else %}
+                        <div class="product-price fa-num">
+                          <span class="price-now">{{ product.price|intcomma:False }} <span class="currency">تومان</span></span>
+                        </div>
+                      {% endif %}
+                    </div>
+                    <div class="product-card-footer">
+                      <input type="hidden" value="{{ product.id }}" class="prod_id" />
+                      <input class="product-id-{{ product.id }}" type="hidden" value="{{ product.id }}" />
+                      <div class="d-flex align-items-center justify-content-between border-top mt-2 py-2">
+                        <div class="product-actions">
+                          <ul>
+                            {% if product.id in product_ids_in_cart %}
+                              <li>
+                                <a data-bs-toggle="tooltip" data-toast data-toast-type="success" data-toast-color="red" data-toast-position="topRight" data-toast-icon="ri-check-fill" data-toast-title="ناموفق!" data-toast-message="محصول قبلا به سبد خرید اضافه شده است برای حذف آن به صفحه سبد خرید بروید!" data-bs-placement="top" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="افزودن به سبد خرید"><i id="cart-icon" class="ri-shopping-cart-fill text-danger"></i></a>
+                              </li>
+                            {% else %}
+                              <li>
+                                <button id="add-to-cart-home" data-bs-toggle="tooltip" data-index="{{ product.id }}" ta-action="add-to-cart" style="background-color:transparent;font-size:18px; border:none;" data-bs-placement="top" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="افزودن به سبد خرید"><i class="ri-shopping-cart-line"></i></button>
+                              </li>
+                            {% endif %}
+                            <li>
+                              <a href="#" class="quick-view-btn" data-product-id="{{ product.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="مشاهده سریع" aria-label="مشاهده سریع" data-remodal-target="quick-view-modal"><i class="ri-search-line"></i></a>
+                            </li>
+                            {% if product.id in product_ids_in_favorite %}
+                              <li>
+                                <a href="#" class="favorite-action remove-favorite-list" data-product-id="{{ product.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف از علاقه‌مندی"><i class="ri-heart-3-fill text-danger"></i></a>
+                              </li>
+                            {% else %}
+                              <li>
+                                <a href="#" class="favorite-action add-favorite-home" data-product-id="{{ product.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="افزودن به علاقه‌مندی"><i class="ri-heart-3-line"></i></a>
+                              </li>
+                            {% endif %}
+                          </ul>
+                        </div>
+                        <div class="product-rating fa-num">
+                          <i class="ri-star-fill star"></i>
+                          <strong>{{ product.avg_total_rating|default:'0' }}</strong>
+                          <span>({{ product.approved_comment_count }})</span>
+                        </div>
+                      </div>
+                      <div class="countdown-timer fa-num" data-countdown="2025/08/01"></div>
+                    </div>
+                  </div>
+                  <!-- end of product-card -->
+                </div>
+              {% endfor %}
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+      <!-- end of box -->
+      <div class="row mb-5">
+        <div class="col-md-6 mb-lg-0 mb-3">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/018.jpg' %}" alt="" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+        <div class="col-md-6 mb-lg-0 mb-3">
+          <!-- start of banner -->
+          <div class="banner-img">
+            <a href="#"><img src="{% static 'store/images/banner/019.jpg' %}" alt="" /></a>
+          </div>
+          <!-- end of banner -->
+        </div>
+      </div>
+    </div>
+    <!-- start of quick-view-modal -->
+    {% include 'quick-view.html' %}
+    <!-- end of quick-view-modal -->
+  </main>
+{% endblock %}

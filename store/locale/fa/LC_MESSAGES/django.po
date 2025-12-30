@@ -1,0 +1,705 @@
+# عنوان توصیفی پروژه
+# کپی‌رایت (C) سال دارنده کپی‌رایت بسته
+# این فایل تحت همان مجوز بسته اصلی توزیع شده است.
+# نام نویسنده اول <ایمیل@آدرس>, سال.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 16:51+0330\n"
+"PO-Revision-Date: 2025-05-13 11:12+0330\n"
+"Last-Translator: پوریا شیرالی پور <impoush@gmail.com>\n"
+"Language-Team: Persian <fa@li.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: admin.py:105
+msgid "Ratings"
+msgstr "امتیازات"
+
+#: admin.py:118
+msgid "Advantages and Disadvantages"
+msgstr "مزایا و معایب"
+
+#: admin.py:122 admin.py:269
+msgid "Likes and Dislikes"
+msgstr "لایک‌ها و دیسلایک‌ها"
+
+#: admin.py:126 admin.py:240 admin.py:273
+msgid "Timestamps"
+msgstr "برچسب‌های زمانی"
+
+#: admin.py:136
+msgid "Approve selected comments"
+msgstr "تأیید نظرات انتخاب‌شده"
+
+#: admin.py:250
+msgid "Approve selected questions"
+msgstr "تأیید پرسش‌های انتخاب‌شده"
+
+#: admin.py:283
+msgid "Approve selected answers"
+msgstr "تأیید پاسخ‌های انتخاب‌شده"
+
+#: apps.py:8
+msgid "Store"
+msgstr "فروشگاه"
+
+#: forms.py:26
+msgid "Please enter your review text."
+msgstr "لطفاً متن نظر خود را وارد کنید."
+
+#: forms.py:47
+msgid "Question text"
+msgstr "متن پرسش"
+
+#: forms.py:51
+msgid "Please enter your question."
+msgstr "لطفاً پرسش خود را وارد کنید."
+
+#: forms.py:60 models.py:634
+msgid "Answer Text"
+msgstr "متن پاسخ"
+
+#: forms.py:63
+msgid "Please enter your Answer."
+msgstr "لطفاً پاسخ خود را وارد کنید."
+
+#: models.py:31
+msgid "Brand Name"
+msgstr "نام برند"
+
+#: models.py:32
+msgid "English Brand Name"
+msgstr "نام انگلیسی برند"
+
+#: models.py:33
+msgid "cover"
+msgstr "تصویر جلد"
+
+#: models.py:40 models.py:66 models.py:137
+msgid "Slug"
+msgstr "اسلاگ"
+
+#: models.py:43 models.py:85 models.py:113 models.py:171 models.py:209
+#: models.py:238 models.py:299 models.py:329 models.py:358 models.py:379
+#: models.py:430 models.py:493 models.py:530 models.py:555 models.py:581
+#: models.py:611 models.py:643 models.py:679
+msgid "Created At"
+msgstr "ایجاد شده در"
+
+#: models.py:45 models.py:87 models.py:173 models.py:301 models.py:331
+#: models.py:381 models.py:495 models.py:583 models.py:613 models.py:645
+msgid "Updated At"
+msgstr "به‌روزرسانی شده در"
+
+#: models.py:48 models.py:143
+msgid "Brand"
+msgstr "برند"
+
+#: models.py:49
+msgid "Brands"
+msgstr "برندها"
+
+#: models.py:60
+msgid "Category Name"
+msgstr "نام دسته‌بندی"
+
+#: models.py:73
+msgid "Parent"
+msgstr "والد"
+
+#: models.py:78
+msgid "Cover"
+msgstr "تصویر جلد"
+
+#: models.py:83
+msgid "Is parent"
+msgstr "آیا والد است؟"
+
+#: models.py:90
+msgid "Category"
+msgstr "دسته‌بندی"
+
+#: models.py:91 models.py:146
+msgid "Categories"
+msgstr "دسته‌بندی‌ها"
+
+#: models.py:103 models.py:156 models.py:691
+msgid "image"
+msgstr "تصویر"
+
+#: models.py:110
+msgid "Color Name"
+msgstr "نام رنگ"
+
+#: models.py:111
+msgid "Hex Code"
+msgstr "کد هگز"
+
+#: models.py:117
+msgid "Color"
+msgstr "رنگ"
+
+#: models.py:118
+msgid "Colors"
+msgstr "رنگ‌ها"
+
+#: models.py:127
+msgid "Product Name"
+msgstr "نام محصول"
+
+#: models.py:129
+msgid "Product English Name"
+msgstr "نام انگلیسی محصول"
+
+#: models.py:148
+msgid "tags"
+msgstr "برچسب‌ها"
+
+#: models.py:151
+msgid "colors"
+msgstr "رنگ‌ها"
+
+#: models.py:159 models.py:527
+msgid "Price"
+msgstr "قیمت"
+
+#: models.py:163
+msgid "Discount Price"
+msgstr "قیمت با تخفیف"
+
+#: models.py:167
+msgid "Stock"
+msgstr "موجودی"
+
+#: models.py:168
+msgid "Is Active"
+msgstr "فعال است"
+
+#: models.py:169
+msgid "Top product"
+msgstr "محصول برتر"
+
+#: models.py:176 models.py:205 models.py:226 models.py:255 models.py:423
+#: models.py:511 models.py:552 models.py:600
+msgid "Product"
+msgstr "محصول"
+
+#: models.py:177 models.py:577
+msgid "Products"
+msgstr "محصولات"
+
+#: models.py:186
+msgid "Discount price must be less than the original price."
+msgstr "قیمت با تخفیف باید کمتر از قیمت اصلی باشد."
+
+#: models.py:207
+msgid "Image"
+msgstr "تصویر"
+
+#: models.py:213
+msgid "Product Image"
+msgstr "تصویر محصول"
+
+#: models.py:214
+msgid "Product Images"
+msgstr "تصاویر محصول"
+
+#: models.py:228
+msgid "Attribute Key"
+msgstr "کلید ویژگی"
+
+#: models.py:229
+msgid "Attribute Value"
+msgstr "مقدار ویژگی"
+
+#: models.py:235
+msgid "Price Modifier"
+msgstr "اصلاح‌کننده قیمت"
+
+#: models.py:242
+msgid "Product Attribute"
+msgstr "ویژگی محصول"
+
+#: models.py:243
+msgid "Product Attributes"
+msgstr "ویژگی‌های محصول"
+
+#: models.py:261 models.py:606 models.py:632
+msgid "User"
+msgstr "کاربر"
+
+#: models.py:263
+msgid "Comment Title"
+msgstr "عنوان نظر"
+
+#: models.py:264
+msgid "Comment Text"
+msgstr "متن نظر"
+
+#: models.py:265
+msgid "Advantages"
+msgstr "مزایا"
+
+#: models.py:266
+msgid "Disadvantages"
+msgstr "معایب"
+
+#: models.py:269
+msgid "Build Quality"
+msgstr "کیفیت ساخت"
+
+#: models.py:273
+msgid "Value for Price"
+msgstr "ارزش در برابر قیمت"
+
+#: models.py:277
+msgid "Innovation"
+msgstr "نوآوری"
+
+#: models.py:281
+msgid "Features"
+msgstr "ویژگی‌ها"
+
+#: models.py:285
+msgid "Ease of Use"
+msgstr "سهولت استفاده"
+
+#: models.py:289
+msgid "Design"
+msgstr "طراحی"
+
+#: models.py:297 models.py:609 models.py:635
+msgid "Is Approved"
+msgstr "تأیید شده است"
+
+#: models.py:304
+msgid "Comment"
+msgstr "نظر"
+
+#: models.py:305
+msgid "Comments"
+msgstr "نظرات"
+
+#: models.py:319
+msgid "mobile"
+msgstr "شماره موبایل"
+
+#: models.py:321
+msgid "First Name"
+msgstr "نام"
+
+#: models.py:324
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: models.py:326 models.py:670
+msgid "Email"
+msgstr "ایمیل"
+
+#: models.py:334 models.py:350 models.py:376 models.py:474 models.py:547
+#: models.py:573
+msgid "Customer"
+msgstr "مشتری"
+
+#: models.py:335
+msgid "Customers"
+msgstr "مشتریان"
+
+#: models.py:352
+msgid "Province"
+msgstr "استان"
+
+#: models.py:353
+msgid "City"
+msgstr "شهر"
+
+#: models.py:354
+msgid "Street"
+msgstr "خیابان"
+
+#: models.py:355
+msgid "Postal Code"
+msgstr "کد پستی"
+
+#: models.py:356
+msgid "Is Default"
+msgstr "پیش‌فرض است"
+
+#: models.py:362 models.py:477
+msgid "Address"
+msgstr "آدرس"
+
+#: models.py:363
+msgid "Addresses"
+msgstr "آدرس‌ها"
+
+#: models.py:371
+msgid "id"
+msgstr "شناسه"
+
+#: models.py:384 models.py:418
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: models.py:385
+msgid "Carts"
+msgstr "سبدهای خرید"
+
+#: models.py:427 models.py:521
+msgid "Quantity"
+msgstr "تعداد"
+
+#: models.py:434
+msgid "Cart Item"
+msgstr "آیتم سبد خرید"
+
+#: models.py:435
+msgid "Cart Items"
+msgstr "آیتم‌های سبد خرید"
+
+#: models.py:464
+msgid "Pending"
+msgstr "در انتظار"
+
+#: models.py:465
+msgid "Processing"
+msgstr "در حال پردازش"
+
+#: models.py:466
+msgid "Shipped"
+msgstr "ارسال‌شده"
+
+#: models.py:467
+msgid "Delivered"
+msgstr "تحویل‌شده"
+
+#: models.py:468
+msgid "Canceled"
+msgstr "لغو‌شده"
+
+#: models.py:483
+msgid "Total Price"
+msgstr "قیمت کل"
+
+#: models.py:489
+msgid "Status"
+msgstr "وضعیت"
+
+#: models.py:491
+msgid "Payment Method"
+msgstr "روش پرداخت"
+
+#: models.py:498 models.py:508
+msgid "Order"
+msgstr "سفارش"
+
+#: models.py:499
+msgid "Orders"
+msgstr "سفارش‌ها"
+
+#: models.py:518
+msgid "Attribute"
+msgstr "ویژگی"
+
+#: models.py:534
+msgid "Order Item"
+msgstr "آیتم سفارش"
+
+#: models.py:535
+msgid "Order Items"
+msgstr "آیتم‌های سفارش"
+
+#: models.py:559
+msgid "Wishlist"
+msgstr "لیست علاقه‌مندی‌ها"
+
+#: models.py:560
+msgid "Wishlists"
+msgstr "لیست‌های علاقه‌مندی"
+
+#: models.py:586
+msgid "Favorite List"
+msgstr "لیست مورد علاقه"
+
+#: models.py:587
+msgid "Favorite Lists"
+msgstr "لیست‌های مورد علاقه"
+
+#: models.py:608
+msgid "Question Text"
+msgstr "متن پرسش"
+
+#: models.py:616 models.py:626
+msgid "Question"
+msgstr "پرسش"
+
+#: models.py:617
+msgid "Questions"
+msgstr "پرسش‌ها"
+
+#: models.py:648
+msgid "Answer"
+msgstr "پاسخ"
+
+#: models.py:649
+msgid "Answers"
+msgstr "پاسخ‌ها"
+
+#: models.py:656
+msgid "Suggestion"
+msgstr "پیشنهاد"
+
+#: models.py:657
+msgid "Complaint or Feedback"
+msgstr "شکایت یا بازخورد"
+
+#: models.py:658
+msgid "Order Tracking"
+msgstr "پیگیری سفارش"
+
+#: models.py:659
+msgid "After-Sales Service"
+msgstr "خدمات پس از فروش"
+
+#: models.py:660
+msgid "Warranty Inquiry"
+msgstr "استعلام گارانتی"
+
+#: models.py:661
+msgid "Management"
+msgstr "مدیریت"
+
+#: models.py:662
+msgid "Accounting and Financial Matters"
+msgstr "امور حسابداری و مالی"
+
+#: models.py:663
+msgid "Other Topics"
+msgstr "سایر موضوعات"
+
+#: models.py:667
+msgid "Subject"
+msgstr "موضوع"
+
+#: models.py:669
+msgid "Full Name"
+msgstr "نام کامل"
+
+#: models.py:671
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+#: models.py:672
+msgid "Message"
+msgstr "پیام"
+
+#: models.py:677
+msgid "Attachment"
+msgstr "پیوست"
+
+#: models.py:682
+msgid "Contact Message"
+msgstr "پیام تماس"
+
+#: models.py:683
+msgid "Contact Messages"
+msgstr "پیام‌های تماس"
+
+#: models.py:690
+msgid "title"
+msgstr "عنوان"
+
+#: models.py:693 models.py:716
+msgid "slug"
+msgstr "اسلاگ"
+
+#: models.py:696 models.py:726
+msgid "datetime_created"
+msgstr "تاریخ ایجاد"
+
+#: models.py:700
+msgid "CategoryOfQuestion"
+msgstr "دسته‌بندی پرسش"
+
+#: models.py:701
+msgid "CategoryOfQuestions"
+msgstr "دسته‌بندی‌های پرسش"
+
+#: models.py:712
+msgid "question"
+msgstr "پرسش"
+
+#: models.py:713
+msgid "answer"
+msgstr "پاسخ"
+
+#: models.py:714
+msgid "long answer"
+msgstr "پاسخ طولانی"
+
+#: models.py:722
+msgid "category"
+msgstr "دسته‌بندی"
+
+#: models.py:724
+msgid "repeat"
+msgstr "تکرار"
+
+#: models.py:730
+msgid "Question of site"
+msgstr "پرسش سایت"
+
+#: models.py:731
+msgid "Questions of site"
+msgstr "پرسش‌های سایت"
+
+#: views.py:443 views.py:503
+msgid "You have already submitted your review."
+msgstr "شما قبلاً نظر خود را ثبت کرده‌اید."
+
+#: views.py:468 views.py:485
+msgid "An error occurred."
+msgstr "خطایی رخ داده است."
+
+#: views.py:583
+msgid "Product Already in Cart"
+msgstr "محصول در سبد خرید موجود است"
+
+#: views.py:594
+msgid "Product Added Successfully."
+msgstr "محصول با موفقیت اضافه شد."
+
+#: views.py:648
+msgid "The product quantity has been updated."
+msgstr "تعداد محصول به‌روزرسانی شد."
+
+#: views.py:683
+msgid "The product has been removed from the cart."
+msgstr "محصول از سبد خرید حذف شد."
+
+#: views.py:713
+msgid "Product already in wishlist"
+msgstr "محصول در لیست علاقه‌مندی‌ها موجود است"
+
+#: views.py:717
+msgid "Product added to wishlist"
+msgstr "محصول به لیست علاقه‌مندی‌ها اضافه شد"
+
+#: views.py:720 views.py:737 views.py:756 views.py:776
+msgid "Login To Continue"
+msgstr "برای ادامه وارد شوید"
+
+#: views.py:733
+msgid "Product removed from wishlist"
+msgstr "محصول از لیست علاقه‌مندی‌ها حذف شد"
+
+#: views.py:735
+msgid "Product not found in wishlist"
+msgstr "محصول در لیست علاقه‌مندی‌ها یافت نشد"
+
+#: views.py:751
+msgid "Product already in favoritelist"
+msgstr "محصول در لیست مورد علاقه موجود است"
+
+#: views.py:754
+msgid "Product added to favoritelist"
+msgstr "محصول به لیست مورد علاقه اضافه شد"
+
+#: views.py:772
+msgid "Product removed from favoritelist"
+msgstr "محصول از لیست مورد علاقه حذف شد"
+
+#: views.py:774
+msgid "Product not found in favoritelist"
+msgstr "محصول در لیست مورد علاقه یافت نشد"
+
+#~ msgid "Cart for {}"
+#~ msgstr "سبد خرید برای {}"
+
+#~ msgid "Please Login to your account first."
+#~ msgstr "لطفاً ابتدا وارد حساب کاربری خود شوید."
+
+#~ msgid "Is Main Image"
+#~ msgstr "تصویر اصلی است"
+
+#~ msgid "Comment submitted for approval."
+#~ msgstr "نظر برای تأیید ارسال شد."
+
+#~ msgid "Invalid request method."
+#~ msgstr "روش درخواست نامعتبر است."
+
+#~ msgid "Image Preview"
+#~ msgstr "پیش‌نمایش تصویر"
+
+#~ msgid "Mark as Offer Product"
+#~ msgstr "علامت‌گذاری به‌عنوان محصول ویژه"
+
+#~ msgid "Clear Offer Status"
+#~ msgstr "حذف وضعیت ویژه"
+
+#~ msgid "Mark as Shipped"
+#~ msgstr "علامت‌گذاری به‌عنوان ارسال‌شده"
+
+#~ msgid "Mark as Delivered"
+#~ msgstr "علامت‌گذاری به‌عنوان تحویل‌شده"
+
+#~ msgid "name"
+#~ msgstr "نام"
+
+#~ msgid "code"
+#~ msgstr "کد"
+
+#~ msgid "old_price"
+#~ msgstr "قیمت قبلی"
+
+#~ msgid "inventory"
+#~ msgstr "موجودی"
+
+#~ msgid "categories"
+#~ msgstr "دسته‌بندی‌ها"
+
+#~ msgid "offer product"
+#~ msgstr "محصول ویژه"
+
+#~ msgid "datetime_modified"
+#~ msgstr "تاریخ به‌روزرسانی"
+
+#~ msgid "user"
+#~ msgstr "کاربر"
+
+#~ msgid "text"
+#~ msgstr "متن"
+
+#~ msgid "quality_rating"
+#~ msgstr "امتیاز کیفیت"
+
+#~ msgid "value_rating"
+#~ msgstr "امتیاز ارزش"
+
+#~ msgid "ease_of_use_rating"
+#~ msgstr "امتیاز سهولت استفاده"
+
+#~ msgid "design_rating"
+#~ msgstr "امتیاز طراحی"
+
+#~ msgid "cart"
+#~ msgstr "سبد خرید"
+
+#~ msgid "total_price"
+#~ msgstr "قیمت کل"
+
+#~ msgid "key"
+#~ msgstr "کلید"
+
+#~ msgid "value"
+#~ msgstr "مقدار"
+
+#~ msgid "Number of Parents"
+#~ msgstr "تعداد والدین"

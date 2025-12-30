@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-26 12:17+0330\n"
+"PO-Revision-Date: 2025-04-26 12:30+0330\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Persian <fa@li.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: apps.py:8
+msgid "Users"
+msgstr "کاربران"
+
+#: forms.py:19
+msgid "Please Enter Phone Number ."
+msgstr "لطفاً شماره تلفن را وارد کنید."
+
+#: forms.py:21
+msgid "Phone Number must at least 11 digits ."
+msgstr "شماره تلفن باید حداقل 11 رقم باشد."
+
+#: forms.py:28
+msgid "OTP code"
+msgstr "کد OTP"
+
+#: forms.py:31
+msgid "Please Enter OTP Code ."
+msgstr "لطفاً کد OTP را وارد کنید."
+
+#: forms.py:32
+msgid "کد OTP باید یک عدد معتبر باشد."
+msgstr "کد OTP باید یک عدد معتبر باشد."
+
+#: forms.py:44
+msgid "لطفاً نام را وارد کنید."
+msgstr "لطفاً نام را وارد کنید."
+
+#: forms.py:46
+msgid "نام نباید بیشتر از 15 حرف باشد."
+msgstr "نام نباید بیشتر از 15 حرف باشد."
+
+#: forms.py:52
+msgid "لطفاً نام خانوادگی را وارد کنید."
+msgstr "لطفاً نام خانوادگی را وارد کنید."
+
+#: forms.py:54
+msgid "نام خانوادگی نباید بیشتر از 15 حرف باشد."
+msgstr "نام خانوادگی نباید بیشتر از 15 حرف باشد."
+
+#: forms.py:66
+msgid "لطفاً ایمیل را وارد کنید."
+msgstr "لطفاً ایمیل را وارد کنید."
+
+#: forms.py:68
+msgid "ایمیل نباید بیشتر از 254 کاراکتر باشد."
+msgstr "ایمیل نباید بیشتر از 254 کاراکتر باشد."
+
+#: forms.py:70
+msgid "لطفاً یک ایمیل معتبر وارد کنید."
+msgstr "لطفاً یک ایمیل معتبر وارد کنید."
+
+#: forms.py:76
+msgid "سال"
+msgstr "سال"
+
+#: forms.py:78
+msgid "لطفاً سال را وارد کنید."
+msgstr "لطفاً سال را وارد کنید."
+
+#: forms.py:81
+msgid "ماه"
+msgstr "ماه"
+
+#: forms.py:97
+msgid "لطفاً ماه را انتخاب کنید."
+msgstr "لطفاً ماه را انتخاب کنید."
+
+#: forms.py:100
+msgid "روز"
+msgstr "روز"
+
+#: forms.py:102
+msgid "لطفاً روز را وارد کنید."
+msgstr "لطفاً روز را وارد کنید."
+
+#: forms.py:119
+msgid "سال باید بین 1300 تا 1403 باشد."
+msgstr "سال باید بین 1300 تا 1403 باشد."
+
+#: forms.py:122
+msgid "ماه باید بین 1 تا 12 باشد."
+msgstr "ماه باید بین 1 تا 12 باشد."
+
+#: forms.py:124
+msgid "روز باید بین 1 تا 31 باشد."
+msgstr "روز باید بین 1 تا 31 باشد."
+
+#: forms.py:128
+msgid "تاریخ وارد شده معتبر نیست."
+msgstr "تاریخ وارد شده معتبر نیست."
+
+#: forms.py:136
+msgid "لطفاً یک فایل انتخاب کنید."
+msgstr "لطفاً یک فایل انتخاب کنید."
+
+#: forms.py:138
+msgid "حجم فایل نباید بیشتر از 2 مگابایت باشد."
+msgstr "حجم فایل نباید بیشتر از 2 مگابایت باشد."
+
+#: forms.py:140
+msgid "فقط فایل‌های JPG و PNG مجاز هستند."
+msgstr "فقط فایل‌های JPG و PNG مجاز هستند."
+
+#: models.py:11
+msgid "avatar"
+msgstr "آواتار"
+
+#: models.py:14
+msgid "mobile"
+msgstr "موبایل"
+
+#: models.py:15
+msgid "otp"
+msgstr "کد تأیید"
+
+#: models.py:18
+msgid "otp datetime created"
+msgstr "زمان ایجاد کد تأیید"
+
+#: models.py:20
+msgid "datetime created"
+msgstr "زمان ایجاد"
+
+#: models.py:30
+msgid "user"
+msgstr "کاربر"
+
+#: models.py:31
+msgid "users"
+msgstr "کاربران"
+
+#: services.py:29
+msgid "Your account has been temporarily blocked. Please try again later."
+msgstr "حساب شما به‌طور موقت مسدود شده است. لطفاً بعداً دوباره تلاش کنید."
+
+#: services.py:33
+msgid "Please wait a moment and then try again."
+msgstr "لطفاً لحظه‌ای صبر کنید و سپس دوباره تلاش کنید."
+
+#: services.py:38
+msgid "Too many requests. Your account has been temporarily blocked."
+msgstr "درخواست‌های بیش از حد. حساب شما به‌طور موقت مسدود شده است."
+
+#: services.py:43
+msgid "The number of requests from this IP has exceeded the allowed limit."
+msgstr "تعداد درخواست‌ها از این IP از حد مجاز فراتر رفته است."
+
+#: user_manager.py:8
+msgid "Mobile number is required"
+msgstr "شماره موبایل الزامی است."
+
+#: user_manager.py:20
+msgid "Superuser must have is_staff=True"
+msgstr "کاربر ارشد باید is_staff=True داشته باشد."
+
+#: user_manager.py:22
+msgid "Superuser must have is_superuser=True"
+msgstr "کاربر ارشد باید is_superuser=True داشته باشد."
+
+#: views.py:87
+msgid "The verification code has expired."
+msgstr "کد تأیید منقضی شده است."
+
+#: views.py:129
+msgid "The mobile number is not valid."
+msgstr "شماره موبایل معتبر نیست."
+
+#: views.py:141 views.py:159
+msgid "A new code has been sent."
+msgstr "کد جدیدی ارسال شد."
+
+#: views.py:144 views.py:162
+msgid "User not found."
+msgstr "کاربر یافت نشد."
+
+#: views.py:148
+msgid "The mobile number is invalid."
+msgstr "شماره موبایل نامعتبر است."
+
+#: views.py:152
+msgid "You cannot request a new one yet."
+msgstr "هنوز نمی‌توانید کد جدیدی درخواست کنید."
+
+#: views.py:370 views.py:396
+msgid "کاربر یافت نشد."
+msgstr "کاربر یافت نشد."
+
+#: views.py:375 views.py:423
+msgid "روش درخواست نامعتبر است."
+msgstr "روش درخواست نامعتبر است."
+
+#: views.py:389
+msgid "داده‌های سشن نامعتبر است."
+msgstr "داده‌های جلسه نامعتبر است."
+
+#: views.py:404
+msgid "کد تأیید منقضی شده است."
+msgstr "کد تأیید منقضی شده است."
+
+#: views.py:410
+msgid "کد اشتباه است."
+msgstr "کد اشتباه است."

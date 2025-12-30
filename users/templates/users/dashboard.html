@@ -1,0 +1,297 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+    YektaKala | profile
+{% endblock title %}
+
+{% block content %}
+<main class="page-content">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-xl-3 col-lg-4 col-md-5 mb-md-0 mb-4">
+                <div class="ui-sticky ui-sticky-top">
+                    <div class="profile-user-info py-3 ui-box bg-white">
+                        <div class="profile-detail">
+                            <div class="d-flex align-items-center">
+                                <div class="profile-avatar me-3">
+                                    {% if user.avatar %}
+                                    <img
+                                    src="{{ user.avatar.url }}" alt="avatar">
+                                    {% else %}
+                                    <img
+                                    src="{% static "store/images/avatar/default.png" %}" alt="avatar">
+                                    {% endif %}
+                                </div>
+                                <div class="profile-info">
+                                    <a href="{% url "users:personal-info" %}" class="text-decoration-none text-dark fw-bold mb-2">{{ user.full_name }}</a>
+                                    <div class="text-muted fs-7 fw-bold">{{ user.mobile }}</div>
+                                </div>
+                            </div>
+                            <div class="user-options">
+                                <ul>
+                                    <li>
+                                        <span class="label">کیف پول</span>
+                                        <span class="detail">
+                                            <span class="d-block">۰ <span
+                                                    class="currency fs-7 fw-bold">تومان</span></span>
+                                            <a href="#"
+                                                class="link border-bottom-0 text-info fs-7 fw-bold">افزایش
+                                                موجودی <i class="ri-arrow-left-s-line"></i></a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="label">باشگاه مشتریان</span>
+                                        <span class="detail">
+                                            <span class="d-block">۰ <span
+                                                    class="score text-muted fs-7">امتیاز</span></span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="nav nav-items-with-icon flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:my-orders" %}"><i class="nav-link-icon ri-file-list-3-line"></i>
+                                    سفارش
+                                    های من</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:favorites" %}"><i class="nav-link-icon ri-heart-3-line"></i> لیست
+                                    ها</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:comments"%}"><i class="nav-link-icon ri-chat-1-line"></i>
+                                    نظرات</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:address" %}"><i class="nav-link-icon ri-map-pin-line"></i> نشانی
+                                    ها</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:giftcards" %}"><i class="nav-link-icon ri-gift-line"></i> کارت های
+                                    هدیه</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:notifications" %}"><i class="nav-link-icon ri-notification-line"></i>
+                                    پیغام ها</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:tickets" %}"><i class="nav-link-icon ri-ticket-line"></i>
+                                    تیکت ها</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:user-history" %}"><i class="nav-link-icon ri-time-line"></i> بازدید
+                                    های
+                                    اخیر</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:personal-info" %}"><i class="nav-link-icon ri-user-line"></i> اطلاعات
+                                    حساب</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "users:logout" %}"><i class="nav-link-icon ri-logout-box-r-line"></i>
+                                    خروج</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-7">
+                <div class="alert alert-warning alert-dismissible fade show mb-5" role="alert">
+                    <div>
+                        سفارش شما در انتظار پرداخت است. برای جلوگیری از لغو سفارش، لطفا پرداخت را انجام دهید.
+                        <a href="#" class="btn btn-sm btn-primary mx-3">سفارش های من</a>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div class="row">
+                    {% if favorite_items %}
+                        <div class="col-lg-6">
+                            <div class="ui-box bg-white mb-5">
+                                <div class="ui-box-title">لیست آخرین علاقمندی ها</div>
+                                <div class="ui-box-content">
+                                    <div class="product-list">
+                                        <!-- start of product-list-item -->
+                                        {% for item in favorite_items|slice:":4" %}
+                                            <div class="product-list-item">
+                                                <div class="thumbnail">
+                                                    <a href="{{ item.product.get_absolute_url }}"><img src="{{ item.product.image.url }}"
+                                                            alt=""></a>
+                                                </div>
+                                                <div class="detail">
+                                                    <a href="{{ item.product.get_absolute_url }}" class="title fs-7 fw-bold mb-2">{{ item.product.title }}
+                                                    </a>
+                                                    <div class="price fa-num">
+                                                        {% if item.product.discount_price %}
+                                                            <span class="fw-bold">{{ item.product.discount_price|intcomma:False }}</span>
+                                                        {% else %}
+                                                            <span class="fw-bold">{{ item.product.price|intcomma:False }}</span>
+                                                        {% endif %}
+                                                        <span class="currency">تومان</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        <!-- end of product-list-item -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if history_items %}
+                        <div class="col-lg-6">
+                            <div class="ui-box bg-white mb-5">
+                                <div class="ui-box-title">آخرین بازدیدهای شما</div>
+                                <div class="ui-box-content">
+                                    <div class="product-list">
+                                        <!-- start of product-list-item -->
+                                        {% for item in history_items %}
+                                            <div class="product-list-item">
+                                                <div class="thumbnail">
+                                                    <a href="{{ item.product.get_absolute_url }}"><img src="{{ item.product.image.url }}"
+                                                            alt=""></a>
+                                                </div>
+                                                <div class="detail">
+                                                    <a href="{{ item.product.get_absolute_url }}" class="title fs-7 fw-bold mb-2">{{ item.product.title }}
+                                                    </a>
+                                                    <div class="price fa-num">
+                                                        {% if item.product.discount_price %}
+                                                            <span class="fw-bold">{{ item.product.discount_price|intcomma:False }}</span>
+                                                        {% else %}
+                                                            <span class="fw-bold">{{ item.product.price|intcomma:False }}</span>
+                                                        {% endif %}
+                                                        <span class="currency">تومان</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        <!-- end of product-list-item -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="ui-box bg-white mb-5">
+                            <div class="ui-box-title">لیست آخرین سفارشها</div>
+                            <div class="ui-box-content">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>شماره سفارش</th>
+                                                <th>تاریخ ثبت سفارش</th>
+                                                <th>مبلغ قابل پرداخت</th>
+                                                <th>مبلغ کل</th>
+                                                <th>عملیات پرداخت</th>
+                                                <th>جزییات</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fa-num">1</td>
+                                                <td class="font-en fw-bold">DKC-244424454</td>
+                                                <td class="fa-num text-muted">۲۵ دی ۱۴۰۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۴۱,۵۴۰,۰۰۰ <span
+                                                        class="currency">تومان</span></td>
+                                                <td><span class="badge bg-success rounded-pill fs-7">پرداخت
+                                                        شده</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-light">جزئیات <i
+                                                            class="ri-arrow-left-s-fill"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fa-num">2</td>
+                                                <td class="font-en fw-bold">DKC-244424454</td>
+                                                <td class="fa-num text-muted">۲۵ دی ۱۴۰۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۴۱,۵۴۰,۰۰۰ <span
+                                                        class="currency">تومان</span></td>
+                                                <td><span class="badge bg-danger rounded-pill fs-7">لغو
+                                                        شده</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-light">جزئیات <i
+                                                            class="ri-arrow-left-s-fill"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fa-num">3</td>
+                                                <td class="font-en fw-bold">DKC-244424454</td>
+                                                <td class="fa-num text-muted">۲۵ دی ۱۴۰۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۴۱,۵۴۰,۰۰۰ <span
+                                                        class="currency">تومان</span></td>
+                                                <td><span class="badge bg-danger rounded-pill fs-7">لغو
+                                                        شده</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-light">جزئیات <i
+                                                            class="ri-arrow-left-s-fill"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fa-num">4</td>
+                                                <td class="font-en fw-bold">DKC-244424454</td>
+                                                <td class="fa-num text-muted">۲۵ دی ۱۴۰۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۴۱,۵۴۰,۰۰۰ <span
+                                                        class="currency">تومان</span></td>
+                                                <td><span class="badge bg-info rounded-pill fs-7">در انتظار
+                                                        پرداخت</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-light">جزئیات <i
+                                                            class="ri-arrow-left-s-fill"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fa-num">5</td>
+                                                <td class="font-en fw-bold">DKC-244424454</td>
+                                                <td class="fa-num text-muted">۲۵ دی ۱۴۰۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۴۱,۵۴۰,۰۰۰ <span
+                                                        class="currency">تومان</span></td>
+                                                <td><span class="badge bg-danger rounded-pill fs-7">لغو
+                                                        شده</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-light">جزئیات <i
+                                                            class="ri-arrow-left-s-fill"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fa-num">6</td>
+                                                <td class="font-en fw-bold">DKC-244424454</td>
+                                                <td class="fa-num text-muted">۲۵ دی ۱۴۰۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۰</td>
+                                                <td class="fa-num fs-6 fw-bold">۴۱,۵۴۰,۰۰۰ <span
+                                                        class="currency">تومان</span></td>
+                                                <td><span class="badge bg-danger rounded-pill fs-7">لغو
+                                                        شده</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-outline-light">جزئیات <i
+                                                            class="ri-arrow-left-s-fill"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}

@@ -1,0 +1,103 @@
+.advantages-container {
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.advantage-item {
+  background-color: #e6f4ea; /* سبز روشن */
+  color: #28a745;
+  padding: 10px 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+}
+
+.disadvantages-container {
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.disadvantage-item {
+  background-color: #f8d7da; /* قرمز روشن */
+  color: #dc3545;
+  padding: 10px 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+}
+
+.answer-like,
+.answer-dislike,
+.comments-like,
+.comments-dislike {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  color: #495057;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.answer-like.active,
+.comments-like.active {
+  background-color: #099818;
+  color: white;
+  border-color: #099818;
+}
+
+.answer-dislike.active,
+.comments-dislike.active {
+  background-color: #099818;
+  color: white;
+  border-color: #099818;
+}
+
+#input-add-minus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-delete-cart-item .fa-trash {
+  color: #ef394e;
+  font-size: 16px;
+}
+
+.fa-trash {
+  color: #ef394e;
+  font-size: 16px;
+}
+
+#input-add-minus button {
+  font-size: 17px;
+  background-color: transparent;
+  border: none;
+}
+
+#minus-span {
+  color: #ef394e;
+}
+
+#cart-btn {
+  font-size: 16px;
+}
+.search-result-items li a.search-suggest-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-suggest-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.search-suggest-title {
+  font-size: 0.9rem;
+}

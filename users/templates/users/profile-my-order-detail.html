@@ -1,0 +1,260 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}
+    YektaKala | My Order Details
+{% endblock title %}
+
+
+{% block content %}
+    <main class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-5 mb-md-0 mb-4">
+                    <div class="ui-sticky ui-sticky-top">
+                        <div class="profile-user-info py-3 ui-box bg-white">
+                            <div class="profile-detail">
+                                <div class="d-flex align-items-center">
+                                    <div class="profile-avatar me-3">
+                                        {% if user.avatar %}
+                                        <img
+                                        src="{{ user.avatar.url }}" alt="avatar">
+                                        {% else %}
+                                        <img
+                                        src="{% static "store/images/avatar/default.png" %}" alt="avatar">
+                                        {% endif %}
+                                    </div>
+                                    <div class="profile-info">
+                                        <a href="{% url "users:personal-info" %}" class="text-decoration-none text-dark fw-bold mb-2">{{ user.full_name }}</a>
+                                        <div class="text-muted fs-7 fw-bold">{{ user.mobile }}</div>
+                                    </div>
+                                </div>
+                                <div class="user-options">
+                                    <ul>
+                                        <li>
+                                            <span class="label">کیف پول</span>
+                                            <span class="detail">
+                                                <span class="d-block">۰ <span
+                                                        class="currency fs-7 fw-bold">تومان</span></span>
+                                                <a href="#"
+                                                    class="link border-bottom-0 text-info fs-7 fw-bold">افزایش
+                                                    موجودی <i class="ri-arrow-left-s-line"></i></a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="label">باشگاه مشتریان</span>
+                                            <span class="detail">
+                                                <span class="d-block">۰ <span
+                                                        class="score text-muted fs-7">امتیاز</span></span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="nav nav-items-with-icon flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:my-orders" %}"><i class="nav-link-icon ri-file-list-3-line"></i>
+                                        سفارش
+                                        های من</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:favorites" %}"><i class="nav-link-icon ri-heart-3-line"></i> لیست
+                                        ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:comments"%}"><i class="nav-link-icon ri-chat-1-line"></i>
+                                        نظرات</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:address" %}"><i class="nav-link-icon ri-map-pin-line"></i> نشانی
+                                        ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:giftcards" %}"><i class="nav-link-icon ri-gift-line"></i> کارت های
+                                        هدیه</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:notifications" %}"><i class="nav-link-icon ri-notification-line"></i>
+                                        پیغام ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:tickets" %}"><i class="nav-link-icon ri-ticket-line"></i>
+                                        تیکت ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:user-history" %}"><i class="nav-link-icon ri-time-line"></i> بازدید
+                                        های
+                                        اخیر</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:personal-info" %}"><i class="nav-link-icon ri-user-line"></i> اطلاعات
+                                        حساب</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="nav-link-icon ri-logout-box-r-line"></i>
+                                        خروج</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-8 col-md-7">
+                    <div class="ui-box bg-white">
+                        <div class="ui-box-title flex-wrap">
+                            <a href="#" class="link border-bottom-0 fs-3 me-2"><i
+                                    class="ri-arrow-right-fill"></i></a>
+                            <span class="me-3">جزئیات سفارش</span>
+                            <span class="fs-7 fa-num">۲۵ دی ۱۴۰۰</span>
+                            <i class="ri-record-circle-fill fs-7 text-muted mx-2"></i>
+                            <span class="font-en">DKC-542455386</span>
+                        </div>
+                        <div class="ui-box-content">
+                            <!-- start of user-order-items -->
+                            <div class="user-order-items">
+                                <!-- start of user-order-item -->
+                                <div class="user-order-item">
+                                    <div class="user-order-item-header">
+                                        <div class="mb-3">
+                                            <div class="row">
+                                                <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                    <span class="user-order-meta fa-num"><span
+                                                            class="text-muted me-1">گیرنده:</span> جلال بهرامی
+                                                        راد</span>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                    <span class="user-order-meta fa-num">23 آبان 1400</span>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                    <span class="user-order-meta">DKC-233189114</span>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                    <span class="user-order-meta text-danger">سفارش لغو شده</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="text-muted fw-bold">مبلغ کل:</span>
+                                            <span class="fw-bold fa-num">۴۲,۴۱۵,۰۰۰
+                                                <span>تومان</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="user-order-item-content">
+                                        <div class="my-3">
+                                            <span class="text-dark fa-num">مرسوله 1 از 1</span>
+                                        </div>
+                                        <div class="cart-items">
+                                            <div class="cart-item">
+                                                <div class="cart-item--thumbnail">
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/01.jpg' %}" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="cart-item--detail">
+                                                    <h2 class="cart-item--title mb-2"><a href="#">هدفون بی سیم
+                                                            سامسونگ مدل
+                                                            Galaxy Buds
+                                                            Live</a></h2>
+                                                    <div class="cart-item--variant mb-2">
+                                                        <span class="color"
+                                                            style="background-color: #fad7c2;"></span>
+                                                        <span class="ms-1">طلایی</span>
+                                                    </div>
+                                                    <div class="cart-item--data mb-4">
+                                                        <ul>
+                                                            <li><i
+                                                                    class="ri-shield-check-fill text-secondary"></i><span>گارانتی
+                                                                    اصالت و
+                                                                    سلامت فیزیکی
+                                                                    کالا</span></li>
+                                                            <li><i class="ri-store-3-fill text-secondary"></i><span>اسم
+                                                                    فروشگاه</span>
+                                                            </li>
+                                                            <li>
+                                                                <i
+                                                                    class="ri-checkbox-multiple-fill text-primary"></i><span>موجود
+                                                                    در
+                                                                    انبار</span>
+                                                                <span class="text-secondary mx-2">|</span>
+                                                                <i class="ri-truck-fill text-danger"></i><span>ارسال
+                                                                    (نحوه
+                                                                    ارسال)</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="cart-item--price--actions justify-content-end">
+                                                        <div
+                                                            class="cart-item--price fa-num d-flex align-items-center flex-wrap">
+                                                            <div class="cart-item--price-now me-3">
+                                                                <span>2,110,000</span>
+                                                                <span class="currency">تومان</span>
+                                                            </div>
+                                                            <div class="cart-item--discount">
+                                                                <span>تخفیف</span>
+                                                                <del>10,000</del>
+                                                                <span class="currency">تومان</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item">
+                                                <div class="cart-item--thumbnail">
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/02.jpg' %}" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="cart-item--detail">
+                                                    <h2 class="cart-item--title mb-2"><a href="#">گوشی موبایل اپل
+                                                            مدل iPhone 13
+                                                            A2634 دو
+                                                            سیم‌ کارت ظرفیت 128 گیگابایت و رم 4 گیگابایت</a></h2>
+                                                    <div class="cart-item--variant mb-2">
+                                                        <span class="color" style="background-color: #000;"></span>
+                                                        <span class="ms-1">مشکی</span>
+                                                    </div>
+                                                    <div class="cart-item--data mb-4">
+                                                        <ul>
+                                                            <li><i
+                                                                    class="ri-shield-check-fill text-secondary"></i><span>گارانتی
+                                                                    اصالت و
+                                                                    سلامت فیزیکی
+                                                                    کالا</span></li>
+                                                            <li><i class="ri-store-3-fill text-secondary"></i><span>اسم
+                                                                    فروشگاه</span>
+                                                            </li>
+                                                            <li>
+                                                                <i
+                                                                    class="ri-checkbox-multiple-fill text-primary"></i><span>موجود
+                                                                    در
+                                                                    انبار</span>
+                                                                <span class="text-secondary mx-2">|</span>
+                                                                <i class="ri-truck-fill text-danger"></i><span>ارسال
+                                                                    (نحوه
+                                                                    ارسال)</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="cart-item--price--actions justify-content-end">
+                                                        <div
+                                                            class="cart-item--price fa-num d-flex align-items-center flex-wrap">
+                                                            <div class="cart-item--price-now">
+                                                                <span>28,250,000</span>
+                                                                <span class="currency">تومان</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of user-order-item -->
+                            </div>
+                            <!-- end of user-order-items -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

@@ -1,0 +1,116 @@
+# ===========================================
+# 🚫 Python
+# ===========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+venv.bak/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ===========================================
+# 🚫 Django
+# ===========================================
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+*.mo
+*.pid
+media/
+staticfiles/
+static_root/
+collected_static/
+
+# Local config files
+local_settings.py
+
+# ===========================================
+# 🚫 Environment / Secrets
+# ===========================================
+.env
+*.env
+!.env.example
+
+# ===========================================
+# 🚫 IDE / Editors
+# ===========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# ===========================================
+# 🚫 Docker
+# ===========================================
+*.pid
+*.seed
+.docker/
+docker-compose.override.yml
+docker-compose.local.yml
+.dockerignore
+
+# ===========================================
+# 🚫 OS
+# ===========================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===========================================
+# 🚫 Coverage / testing
+# ===========================================
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+pytestdebug.log
+
+# ===========================================
+# 🚫 Celery / Redis / Worker artifacts
+# ===========================================
+celerybeat-schedule
+celerybeat.pid
+
+# ===========================================
+# 🚫 Misc
+# ===========================================
+*.tmp
+*.bak
+*.orig
+*.rej
+*.log
+*.out
+*.err
+

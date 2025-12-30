@@ -1,0 +1,305 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}
+    YektaKala | My Orders
+{% endblock title %}
+
+
+{% block content %}
+    <main class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-5 mb-md-0 mb-4">
+                    <div class="ui-sticky ui-sticky-top">
+                        <div class="profile-user-info py-3 ui-box bg-white">
+                            <div class="profile-detail">
+                                <div class="d-flex align-items-center">
+                                    <div class="profile-avatar me-3">
+                                        {% if user.avatar %}
+                                        <img
+                                        src="{{ user.avatar.url }}" alt="avatar">
+                                        {% else %}
+                                        <img
+                                        src="{% static "store/images/avatar/default.png" %}" alt="avatar">
+                                        {% endif %}
+                                    </div>
+                                    <div class="profile-info">
+                                        <a href="{% url "users:personal-info" %}" class="text-decoration-none text-dark fw-bold mb-2">{{ user.full_name }}</a>
+                                        <div class="text-muted fs-7 fw-bold">{{ user.mobile }}</div>
+                                    </div>
+                                </div>
+                                <div class="user-options">
+                                    <ul>
+                                        <li>
+                                            <span class="label">کیف پول</span>
+                                            <span class="detail">
+                                                <span class="d-block">۰ <span
+                                                        class="currency fs-7 fw-bold">تومان</span></span>
+                                                <a href="#"
+                                                    class="link border-bottom-0 text-info fs-7 fw-bold">افزایش
+                                                    موجودی <i class="ri-arrow-left-s-line"></i></a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="label">باشگاه مشتریان</span>
+                                            <span class="detail">
+                                                <span class="d-block">۰ <span
+                                                        class="score text-muted fs-7">امتیاز</span></span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="nav nav-items-with-icon flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:my-orders" %}"><i class="nav-link-icon ri-file-list-3-line"></i>
+                                        سفارش
+                                        های من</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:favorites" %}"><i class="nav-link-icon ri-heart-3-line"></i> لیست
+                                        ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:comments"%}"><i class="nav-link-icon ri-chat-1-line"></i>
+                                        نظرات</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:address" %}"><i class="nav-link-icon ri-map-pin-line"></i> نشانی
+                                        ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:giftcards" %}"><i class="nav-link-icon ri-gift-line"></i> کارت های
+                                        هدیه</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:notifications" %}"><i class="nav-link-icon ri-notification-line"></i>
+                                        پیغام ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:tickets" %}"><i class="nav-link-icon ri-ticket-line"></i>
+                                        تیکت ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:user-history" %}"><i class="nav-link-icon ri-time-line"></i> بازدید
+                                        های
+                                        اخیر</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "users:personal-info" %}"><i class="nav-link-icon ri-user-line"></i> اطلاعات
+                                        حساب</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="nav-link-icon ri-logout-box-r-line"></i>
+                                        خروج</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-8 col-md-7">
+                    <div class="ui-box bg-white">
+                        <div class="ui-box-title">تاریخچه سفارشات</div>
+                        <div class="ui-box-content">
+                            <!-- start of order-tabs -->
+                            <div class="order-tabs">
+                                <ul class="nav nav-tabs fa-num" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link d-inline-flex align-items-center"
+                                            id="wait-for-payment-tab" data-bs-toggle="tab"
+                                            data-bs-target="#wait-for-payment" type="button" role="tab"
+                                            aria-controls="wait-for-payment" aria-selected="false">در انتظار پرداخت
+                                            <span class="badge rounded-pill bg-danger ms-1">0</span></button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link d-inline-flex align-items-center"
+                                            id="paid-in-progress-tab" data-bs-toggle="tab"
+                                            data-bs-target="#paid-in-progress" type="button" role="tab"
+                                            aria-controls="paid-in-progress" aria-selected="false">در حال پردازش
+                                            <span class="badge rounded-pill bg-danger ms-1">0</span></button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link d-inline-flex align-items-center" id="delivered-tab"
+                                            data-bs-toggle="tab" data-bs-target="#delivered" type="button"
+                                            role="tab" aria-controls="delivered" aria-selected="false">تحویل شده
+                                            <span class="badge rounded-pill bg-danger ms-1">0</span></button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link d-inline-flex align-items-center" id="returned-tab"
+                                            data-bs-toggle="tab" data-bs-target="#returned" type="button" role="tab"
+                                            aria-controls="returned" aria-selected="false">مرجوعی <span
+                                                class="badge rounded-pill bg-danger ms-1">0</span></button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link d-inline-flex align-items-center active"
+                                            id="canceled-tab" data-bs-toggle="tab" data-bs-target="#canceled"
+                                            type="button" role="tab" aria-controls="canceled"
+                                            aria-selected="true">لغو
+                                            شده <span class="badge rounded-pill bg-danger ms-1">15</span></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end of order-tabs -->
+                            <!-- start of tab-content -->
+                            <div class="tab-content" id="myTabContent">
+                                <!-- start of tab-pane -->
+                                <div class="tab-pane fade" id="wait-for-payment" role="tabpanel"
+                                    aria-labelledby="wait-for-payment-tab">
+                                    <div class="ui-box-empty-content">
+                                        <div class="ui-box-empty-content-icon">
+                                            <img src="{% static 'store/images/theme/orders.svg' %}" alt="">
+                                        </div>
+                                        <div class="ui-box-empty-content-message">سفارش فعالی در این بخش وجود ندارد.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of tab-pane -->
+                                <!-- start of tab-pane -->
+                                <div class="tab-pane fade" id="paid-in-progress" role="tabpanel"
+                                    aria-labelledby="paid-in-progress-tab">
+                                    <div class="ui-box-empty-content">
+                                        <div class="ui-box-empty-content-icon">
+                                            <img src="{% static 'store/images/theme/orders.svg' %}" alt="">
+                                        </div>
+                                        <div class="ui-box-empty-content-message">سفارش فعالی در این بخش وجود ندارد.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of tab-pane -->
+                                <!-- start of tab-pane -->
+                                <div class="tab-pane fade" id="delivered" role="tabpanel"
+                                    aria-labelledby="delivered-tab">
+                                    <div class="ui-box-empty-content">
+                                        <div class="ui-box-empty-content-icon">
+                                            <img src="{% static 'store/images/theme/orders.svg' %}" alt="">
+                                        </div>
+                                        <div class="ui-box-empty-content-message">سفارش فعالی در این بخش وجود ندارد.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of tab-pane -->
+                                <!-- start of tab-pane -->
+                                <div class="tab-pane fade" id="returned" role="tabpanel"
+                                    aria-labelledby="returned-tab">
+                                    <div class="ui-box-empty-content">
+                                        <div class="ui-box-empty-content-icon">
+                                            <img src="{% static 'store/images/theme/orders.svg' %}" alt="">
+                                        </div>
+                                        <div class="ui-box-empty-content-message">سفارش فعالی در این بخش وجود ندارد.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of tab-pane -->
+                                <!-- start of tab-pane -->
+                                <div class="tab-pane fade show active" id="canceled" role="tabpanel"
+                                    aria-labelledby="canceled-tab">
+                                    <div class="user-order-items">
+                                        <div class="user-order-item">
+                                            <div class="user-order-item-header">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                            <span class="user-order-meta fa-num">23 آبان 1400</span>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                            <span class="user-order-meta">DKC-233189114</span>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                            <span class="user-order-meta">سفارش لغو شده</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-muted fw-bold">مبلغ کل:</span>
+                                                    <span class="fw-bold fa-num">۴۲,۴۱۵,۰۰۰
+                                                        <span>تومان</span></span>
+                                                </div>
+                                                <a href="{% url "users:my-order-detail" %}"
+                                                    class="btn btn-link fw-bold user-order-detail-link">جزئیات
+                                                    سفارش <i class="ri-arrow-left-s-fill"></i></a>
+                                            </div>
+                                            <div class="user-order-item-content">
+                                                <div class="mb-3">
+                                                    <span class="text-dark fa-num">مرسوله 1 از 1</span>
+                                                </div>
+                                                <div class="user-order-item-products">
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/01.jpg' %}" alt="">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/02.jpg' %}" alt="">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/03.jpg' %}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-order-item">
+                                            <div class="user-order-item-header">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                            <span class="user-order-meta fa-num">23 آبان 1400</span>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                            <span class="user-order-meta">DKC-233189114</span>
+                                                        </div>
+                                                        <div class="col-xl-3 col-lg-4 col-md-auto col-sm-6">
+                                                            <span class="user-order-meta">سفارش لغو شده</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-muted fw-bold">مبلغ کل:</span>
+                                                    <span class="fw-bold fa-num">۴۲,۴۱۵,۰۰۰
+                                                        <span>تومان</span></span>
+                                                </div>
+                                                <a href="{% url "users:my-order-detail" %}"
+                                                    class="btn btn-link fw-bold user-order-detail-link">جزئیات
+                                                    سفارش <i class="ri-arrow-left-s-fill"></i></a>
+                                            </div>
+                                            <div class="user-order-item-content">
+                                                <div class="mb-3">
+                                                    <span class="text-dark fa-num">مرسوله 1 از 1</span>
+                                                </div>
+                                                <div class="user-order-item-products">
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/01.jpg' %}" alt="">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/02.jpg' %}" alt="">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/03.jpg' %}" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-dark fa-num">مرسوله 1 از 1</span>
+                                                </div>
+                                                <div class="user-order-item-products">
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/01.jpg' %}" alt="">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/02.jpg' %}" alt="">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'store/images/carts/03.jpg' %}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of tab-pane -->
+                            </div>
+                            <!-- end of tab-content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
